@@ -18,7 +18,6 @@ public class ProductController {
 
     public ProductService productService;
 
-
     @Autowired
     public void setProductService(ProductService productService){
         this.productService = productService;
@@ -34,7 +33,7 @@ public class ProductController {
         return productService.findProductById(id);
     }
 
-    @PostMapping(value = "/postProfile", headers = "Accept=application/json")
+    @PostMapping(value = "/postProduct", headers = "Accept=application/json")
     public ResponseEntity<Void> createProfile(@RequestBody Product product, UriComponentsBuilder uriComponentsBuilder){
         productService.createProduct(product);
         HttpHeaders headers = new HttpHeaders();
@@ -63,5 +62,6 @@ public class ProductController {
         return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
 
     }
+
 
 }

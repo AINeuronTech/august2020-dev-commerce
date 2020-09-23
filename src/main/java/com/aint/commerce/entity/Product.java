@@ -1,14 +1,15 @@
 package com.aint.commerce.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Product")
 public class Product {
 
     @Id
+    @GeneratedValue
     int prodId;
     String prodName;
     String prodPrice;
