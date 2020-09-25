@@ -1,51 +1,40 @@
 package com.aint.commerce.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
+
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
-public class Person {
+@Table(name = "Person")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
+public class Person{
 
     @Id
-    int personId;
-    String personName;
-    String personPhoneNumber;
-    @OneToMany(mappedBy = "person")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int personId;
+    @Column(name = "personName")
+    private String personName;
+    @Column(name = "personPhoneNumber")
+    private String personPhoneNumber;
+    @OneToMany(mappedBy = "person",cascade = CascadeType.ALL)
+    @JsonIgnore
     public List<Product> products;
-
-    public Person(){}
-    public Person(int personId, String personName, String personPhoneNumber) {
-        this.personId = personId;
-        this.personName = personName;
-        this.personPhoneNumber = personPhoneNumber;
-    }
-
-    public int getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(int personId) {
-        this.personId = personId;
-    }
-
-    public String getPersonName() {
-        return personName;
-    }
-
-    public void setPersonName(String personName) {
-        this.personName = personName;
-    }
-
-    public String getPersonPhoneNumber() {
-        return personPhoneNumber;
-    }
-
-    public void setPersonPhoneNumber(String personPhoneNumber) {
-        this.personPhoneNumber = personPhoneNumber;
-    }
-
-
 
 }
