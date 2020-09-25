@@ -1,8 +1,6 @@
 package com.aint.commerce.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -24,6 +22,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Person{
 
     @Id
@@ -33,7 +33,7 @@ public class Person{
     private String personName;
     @Column(name = "personPhoneNumber")
     private String personPhoneNumber;
-    @OneToMany(mappedBy = "person",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person",cascade = CascadeType.ALL,orphanRemoval = true)
     @JsonIgnore
     public List<Product> products;
 
