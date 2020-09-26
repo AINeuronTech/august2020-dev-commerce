@@ -32,18 +32,16 @@ public class ProdNEmployeeController {
     @PutMapping("/product")
     public ResponseEntity<Product> updateProduct(@RequestBody Product product) {
 
-        Product prod = productNPersonService.editPerson(product);
+        Product prod = productNPersonService.editProduct(product);
         return new ResponseEntity<>(prod, HttpStatus.OK);
     }
 
     @DeleteMapping("/product")
     public ResponseEntity<String> deleteProduct(@RequestParam(name = "productId") Integer productId) {
 
-        productNPersonService.deletePerson(productId);
+        productNPersonService.deleteProduct(productId);
         return new ResponseEntity<>("Product with ID :" + productId + " deleted successfully", HttpStatus.OK);
     }
-
-
 
 }
 

@@ -32,11 +32,11 @@ public class ProductNPersonService {
         return  productRepository.save(product);
     }
 
-    public Product editPerson(Product product){
+    public Product editProduct(Product product){
         return productRepository.save(product);
     }
 
-    public void deletePerson(Integer id){
+    public void deleteProduct(Integer id){
         productRepository.deleteById(id);
     }
 }

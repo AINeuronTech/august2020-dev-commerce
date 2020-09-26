@@ -22,7 +22,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Person{
 
@@ -33,7 +32,7 @@ public class Person{
     private String personName;
     @Column(name = "personPhoneNumber")
     private String personPhoneNumber;
-    @OneToMany(mappedBy = "person",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "person",cascade = CascadeType.ALL)
     @JsonIgnore
     public List<Product> products;
 
