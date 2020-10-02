@@ -18,7 +18,7 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @GetMapping("/get-person")
+    @GetMapping("/getPerson")
     public ResponseEntity<List<Person>> getAllPerson() {
 
         List<Person> person = personService.getAllPerson();
