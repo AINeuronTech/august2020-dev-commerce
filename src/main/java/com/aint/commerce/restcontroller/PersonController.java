@@ -6,6 +6,7 @@ import com.aint.commerce.services.PersonService;
 import com.aint.commerce.services.ProductNPersonService;
 
 import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@ApiResponses(value = {
+        @ApiResponse(code = 400, message = "This is bad request"),
+        @ApiResponse(code = 401, message = "Security Constraint"),
+        @ApiResponse(code = 500, message = "Server side error")
+})
 public class PersonController {
 
 
