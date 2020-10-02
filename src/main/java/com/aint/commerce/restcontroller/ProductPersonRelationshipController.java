@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class ProdNEmployeeController {
+@RequestMapping("/api")
+public class ProductPersonRelationshipController {
 
    @Autowired
     private ProductNPersonService productNPersonService;

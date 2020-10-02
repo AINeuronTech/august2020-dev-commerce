@@ -25,8 +25,8 @@ public class ProductController {
     }
 
     @GetMapping(value = "/getProduct", headers = "Accept=application/json")
-    public List<Product> getProfile(){
-        return productService.retrieveAllProducts();
+    public ResponseEntity<List<Product>> getProfile(){
+        return new ResponseEntity<List<Product>>(productService.retrieveAllProducts(),HttpStatus.OK);
     }
 
     @GetMapping(value = "/getProduct/{id}", headers = "Accept=application/json")
