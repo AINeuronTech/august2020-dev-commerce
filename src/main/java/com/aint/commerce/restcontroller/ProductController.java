@@ -2,6 +2,8 @@ package com.aint.commerce.restcontroller;
 
 import com.aint.commerce.entity.Product;
 import com.aint.commerce.services.ProductService;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,11 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
+@ApiResponses( value = {
+        @ApiResponse(code = 400, message = "This is bad client call, please read the API GET format"),
+        @ApiResponse(code = 401, message = "Security Enabled, Need Authorization"),
+        @ApiResponse(code = 500, message = "probably Server is down, Please Contact Admin/DevOps@aineurontech.com"),
+})
 public class ProductController {
 
     public ProductService productService;
