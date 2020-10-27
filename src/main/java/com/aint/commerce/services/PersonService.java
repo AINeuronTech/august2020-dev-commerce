@@ -18,7 +18,7 @@ public class PersonService {
     private ProductRepository productRepository;
 
     public List<Person> getAllPerson(){
-        return personRepository.findAll();
+        return (List<Person>) personRepository.findAll();
     }
 
     public Person addPerson(Person person){
