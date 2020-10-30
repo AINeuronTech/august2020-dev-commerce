@@ -1,8 +1,10 @@
 package com.aint.commerce.api.documentation;
 
 
+import com.google.common.base.Predicate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -21,8 +23,8 @@ public class SwaggerConfig {
     public Docket apiDocumentation(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .paths(PathSelectors.ant("/api/*"))
-                .apis(RequestHandlerSelectors.any())
+                .paths((Predicate<String>) PathSelectors.ant("/api/*"))
+                .apis((Predicate<RequestHandler>) RequestHandlerSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
 
