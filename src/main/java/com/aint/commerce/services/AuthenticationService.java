@@ -16,8 +16,8 @@ public class AuthenticationService {
     @Autowired
     public AuthenticationRepository authenticationRepository;
 
-    public UserProfile findByUserEmail(String userProfile){
-        return  authenticationRepository.findByUserName(userProfile);
+    public UserProfile findByUserEmail(UserProfile userProfile){
+        return  authenticationRepository.findByUserName(userProfile.getUserName());
     }
 
     public void createProfile(UserProfile userProfile){
