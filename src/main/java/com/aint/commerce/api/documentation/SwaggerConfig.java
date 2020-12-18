@@ -32,7 +32,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo(){
         return new ApiInfo(
-                "Product and Person API",
+                "Product and Person API for Ecommerce",
                 "This API will provide list of Product and Person belongs to",
                 "Version-1.1",
                 "http://localhost.com/",
