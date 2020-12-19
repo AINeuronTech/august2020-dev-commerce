@@ -15,5 +15,5 @@ phases:
 artifacts:
   files:
     - target/commerce-0.0.1-SNAPSHOT.jar
-    - appspec.yml
+    - buildspec.yml
   discard-paths: yes
