@@ -15,5 +15,5 @@ phases:
 artifacts:
   files:
     - target/my-app-1.0-SNAPSHOT.jar
-    - appspec.yml
+    - buildspec.yml
   discard-paths: yes
